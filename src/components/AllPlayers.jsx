@@ -24,83 +24,6 @@ export function AllPlayers() {
   }, []);
 
   const handleSearch = () => {
-    const filteredPlayers = playerRoster.filter((player) =>
-      player.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setPlayerRoster(filteredPlayers);
-  };
-
-  const handleDelete = (playerId) => {
-    const updatedRoster = playerRoster.filter((player) => player.id !== playerId);
-    setPlayerRoster(updatedRoster);
-  };
-
-  return (
-    <div>
-      <h1>All Players on the Roster!</h1>
-      <input
-        type="text"
-        placeholder="Search for players"
-        value={searchQuery}
-        onChange={(event) => setSearchQuery(event.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
-
-      <ol>
-        {playerRoster.map((player) => (
-          <li key={player.id}>
-            <h2>{player.name}</h2>
-            <img src={player.imageUrl} alt={player.name} />
-            <button
-              onClick={() => {
-                nav(`/player/${player.id}`);
-              }}
-            >
-              See Details!
-            </button>
-            <button onClick={() => handleDelete(player.id)}>Delete</button>
-          </li>
-        ))}
-      </ol>
-    </div>
-  );
-}
-
-
-
-
-
-
-
-
-
-/*
-import { useEffect, useState } from "react";
-import { getAllPlayers } from "../API";
-import { useNavigate } from "react-router-dom";
-
-const cohortName = "2309-FTB-ET-WEB-PT";
-export const BaseUrl = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}`;
-
-export function AllPlayers() {
-  const [playerRoster, setPlayerRoster] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const nav = useNavigate();
-
-  useEffect(() => {
-    async function getPlayers() {
-      try {
-        const response = await fetch(`${BaseUrl}/players`);
-        const result = await response.json();
-        setPlayerRoster(result.data.players);
-      } catch (error) {
-        console.error("Error fetching players:", error);
-      }
-    }
-    getPlayers();
-  }, []);
-
-  const handleSearch = () => {
     // Filter players based on the search query
     const filteredPlayers = playerRoster.filter((player) =>
       player.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -133,8 +56,8 @@ export function AllPlayers() {
             <img src={player.imageUrl} alt={player.name} />
             <button
               onClick={() => {
-                const playerId = idx + 1;
-                nav(`/player/${playerId}`);
+                const playerId = player.id;
+                nav(`/players/${playerId}`);
               }}
             >
               See Details!
@@ -146,4 +69,3 @@ export function AllPlayers() {
     </div>
   );
 }
-*/

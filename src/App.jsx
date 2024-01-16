@@ -16,8 +16,8 @@ function App() {
       </nav>
       <Routes>
         <Route path='/' element={<h1>Home page</h1>} />
-        <Route path="/Players" element={<AllPlayers  />} />
-        <Route path="/Players/:playerId" element={<SinglePlayerView />} />
+        <Route path="/players" element={<AllPlayers  />} />
+        <Route path="/players/:playerId" element={<SinglePlayerView />} />
         <Route path="/NewPlayerForm" element={<NewPlayerForm />} />
       </Routes>
     </>
