@@ -44,10 +44,11 @@
 nav {
   padding: 1em;
   justify-content: space-evenly;
-  background-color: blue;
+  background-color: white;
   position: fixed;
-  left: 5%;
+  left: 3%;
   top: 5%;
+  border: 2px solid red;
 }
 
 h1 {

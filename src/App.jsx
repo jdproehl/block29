@@ -10,8 +10,9 @@ function App() {
   return (
     <>
       <nav>
-        <NavLink to="/">Home</NavLink>
+   
         <NavLink to="/Players">All Players</NavLink>
+        <br></br>
         <NavLink to="/NewPlayerForm">Add a Player</NavLink>
       </nav>
       <Routes>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllPlayers } from "../API";
 import { useNavigate } from "react-router-dom";
+import newPlayerForm from "./NewPlayerForm";
 
 const cohortName = "2309-FTB-ET-WEB-PT";
 export const BaseUrl = `https://fsa-puppy-bowl.herokuapp.com/api/${cohortName}`;
@@ -29,9 +30,10 @@ export function AllPlayers() {
       player.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setPlayerRoster(filteredPlayers);
+    console.log(filteredPlayers);
   };
 
-  const handleDelete = (playerId) => { // Will not delete the player from the API, just from the current session.
+  const handleDelete = (playerId) => { // Will not delete the player from the API, just from the curent session.
     const updatedRoster = playerRoster.filter((player, idx) => idx !== playerId);
     setPlayerRoster(updatedRoster);
   };
